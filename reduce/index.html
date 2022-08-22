@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function process(url) {
+            //.... 使用reduce
+            let arr = url.split('?')
+            //   console.log(arr[1]);
+            let result = arr[1].replaceAll('=', ':').replaceAll('&', ',').replaceAll('#', '')
+            let Arr = result.split(',')
+            let obj = Arr.reduce(function (acc, item) {
+                console.log(acc, item);
+                return acc += item
+            }, {})
+
+        }
+
+        process('http://www.baidu.com/?name=zhangsan&age=18&sex=nan#')
+    </script>
+</body>
+
+</html>
